@@ -363,3 +363,4 @@ https://www.owasp.org/index.php/Session_fixation
 
 >https://prakharprasad.com/crlf-injection-http-response-splitting-explained/
 
+#Null Byte Injection
