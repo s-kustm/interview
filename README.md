@@ -316,6 +316,8 @@ Both RAM and SITA have a common symmetric number now.
 
 		5. The payload says to make a request to evil.com along with the cookie of the example.com website.
 
+>CSRF using iframe injection
+
 Here the user doesn't knows that example.com was visited.
 
 19. X-Frame-Options headers tells the browser not to allow loading of the webpage in an iframe, frame or object.
@@ -363,4 +365,49 @@ https://www.owasp.org/index.php/Session_fixation
 
 >https://prakharprasad.com/crlf-injection-http-response-splitting-explained/
 
-#Null Byte Injection
+23. JSON is JavaScript Object Notation: Its a text based data exchange protocol used by the applications. Human readable and data can be arranged in hierarchial way.
+Heavily used in AJAX instead of XML due to its light weight.
+
+24. CSRF is an attack that forces an end user to execute unwanted actions on a web application in which they're currently authenticated.
+	
+>Malicious website exploits the trust between the victim's browser and the vulnerable website to which victim is authenticated to.
+>CSRF attacks specifically target state-changing requests, not theft of data, since the attacker has no way to see the response to the 		forged request.
+
+ 	1. Can happen if website is vulnerable to html injection or xss.
+	2. Malicious website hosting the vulnerable Form or GET request.
+	3. img src, script src, iframe src tags can be used.
+
+Ex- CSRF using iframe
+	<iframe name="attack" style=display:none></iframe>
+	<form action="bawhaha" method="POST" target="attack">
+	<script>document.forms[0].submit();</script>
+
+		1. Create a POST request form containing CSRF submit request
+		2. Create an iframe
+		3. POST request is made as soon as the victim visits the page.
+		4. The response is loaded in the invisible iframe by putting a "target" paramter within the Form attribute.
+
+Ex- Breaking CSRF token cipher/hashing
+
+25. IDOR : Authorization Problem
+When a developer fails to apply authorization checks while various objects are being referenced. Happens in a multiuser system where a user is able to access another user's objects which he/she shouldn't be allowed to.
+
+26. Template Injection
+
+>To separate business logic (the logic that receives and processes data) and data representations (the logic that shows the data to the user), 	in modern web applications templates are often used.
+
+>Template engines are widely used by web applications to present dynamic data via web pages and emails.
+
+>Template Injection occurs when user input is embedded in a template in an unsafe manner.
+
+>However in the initial observation, this vulnerability is easy to mistake for XSS attacks. But SSTI attacks can be used to directly attack web servers’ internals and leverage the attack more complex such as running remote code execution and complete server compromise.
+
+
+
+27. Null Byte Injection
+
+>The null character is a control character with the value zero. 
+
+>It is also possible to pass the null character in the URL, which creates a vulnerability known as Null Byte Injection and can lead to security exploits. In the URL it is represented by %00. 
+
+Ex- Image with the name hello.gif and can be changed to hello.phpA.gif. Try replacing the hex value of A (\x60) with null byte which is (\x00)
