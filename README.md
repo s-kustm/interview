@@ -61,7 +61,10 @@ DOM is a tree of objects created by the browser when the webpage is loaded and a
 6. CORS
 
 		- A CORS request must have an Origin header; there is no way around it. If there is no Origin header, it is not CORS. This 				Origin header is added by the browser, and can not be controlled by the user.
-		- 
+		- Pre-flight request: Let’s say that your web server does not support CORS, but browsers have implemented CORS. This means 					that your web server will get CORS requests that it does not know how to respond to.
+
+			To avoid the element of surprise, the browser sends preflight request and ask servers if they support CORS and allow 				requests with that origin, containing methods and headers. If not, the browser will not make the actual request.
+			GET, POST, HEAD and OPTIONS are all requests that server understands, so no preflight request are initiated from 				browser.
 
 7. Same origin policy
 		Under the policy, a web browser permits scripts contained in a first web page to access data in a second web page, but only if 			both web pages have the same origin. An origin is defined as a combination of URI scheme, hostname, and port number.
@@ -177,11 +180,24 @@ Mitigation:
 			symmetric key
 		8. Client Finished
 
-											9. Pre-master key is obtained by the server by 													decrypting using private key. And this 													pre-master is passed through a series of 													calculation to generate a symmetric key 		
+											9. Pre-master secret is obtained by the server by 													decrypting using private key. And this 													pre-master is passed through a series of 													calculation to generate a symmetric key 		
 				
 											11. Change cipher spec command is sent indicating that 													from now on whatever will be sent by the 													browser will be encrypted using symmetric key
 
 											12. Server finished
+
+Contents of Digital Certificate (there are 2 sections)
+
+		Data Section
+>Serial Number of the Certificate. Every certificate issued by a certificate authority (CA) has a serial number that is unique among the certificates issued by that CA.
+>Information about your public key, including the algorithm used and a representation of the key itself.
+>The distinguished name (DN) of the CA that issued the certificate.
+>The time during which the certificate is valid. For example, between 2:00 p.m. on March 26, 2000 and 2:00 p.m. on March 28, 2001.
+
+		Signature Section
+>The cipher or cryptographic algorithm that is used by issuing the CA to create its own digital signature
+>The digital signature for the CA, which is obtained by hashing all of the information in the certificate together and encrypting it with the CA private key.
+
 
 14. SSH handshake
 
@@ -324,7 +340,7 @@ Here the user doesn't knows that example.com was visited.
 
 20. Clickjacking is an attack that occurs when an attacker uses a transparent iframe in a window to trick a user into clicking on a  button or link, to another server in which they have an identical looking window.
 
-	Example: For example, imagine an attacker who builds a web site that has a button on it that says "click here for a free iPod". 		However, on top of that web page, the attacker has loaded an iframe with your mail account, and lined up exactly the "delete 			all messages" button directly on top of the "free iPod" button. The victim tries to click on the "free iPod" button but 		instead actually clicked on the invisible "delete all messages" button. In essence, the attacker has "hijacked" the user's 			click, hence the name "Clickjacking".
+	Example: For example, imagine an attacker who builds a web site that has a button on it that says "click here for a free iPod". 		However, on top of that web page, the attacker has loaded an iframe with your mail account, and lined up exactly the "delete 			all messages" button directly on top of the "free iPod" button. The victim tries to click on the "free iPod" button but 		instead actually clicked on the "delete all messages" button. In essence, the attacker has "hijacked" the user's 			click, hence the name "Clickjacking".
 
 21. XPATH injection
 
@@ -343,7 +359,7 @@ Here the user doesn't knows that example.com was visited.
 
 The example below explains a simple form, the process of the attack, and the expected results.
 
-(1)The attacker has to establish a legitimate connection with the web server which 
+(1) The attacker has to establish a legitimate connection with the web server which 
 (2) issues a session ID or, the attacker can create a new session with the proposed session ID, then, 
 (3) the attacker has to send a link with the established session ID to the victim, she has to click on the link sent from the attacker accessing the site, 
 (4) the Web Server saw that session was already established and a new one need not to be created, 
@@ -362,6 +378,8 @@ The example below explains a simple form, the process of the attack, and the exp
 https://www.owasp.org/index.php/Session_fixation
 
 23. CRLF Injection / HTTP Response Splitting is a web application vulnerability happens due to direct passing of user entered data to the response header fields like (Location, Set-Cookie and etc) without proper sanitsation, which can result in various forms of security exploits. Security exploits range from XSS, Cache-Poisoning, Cache-based defacement, page injection and etc.
+
+CR (Carriage Return) and LF (Line Feed) are non-printable characters which together indicate end-of-line.
 
 >https://prakharprasad.com/crlf-injection-http-response-splitting-explained/
 
@@ -411,3 +429,5 @@ When a developer fails to apply authorization checks while various objects are b
 >It is also possible to pass the null character in the URL, which creates a vulnerability known as Null Byte Injection and can lead to security exploits. In the URL it is represented by %00. 
 
 Ex- Image with the name hello.gif and can be changed to hello.phpA.gif. Try replacing the hex value of A (\x60) with null byte which is (\x00)
+
+28. Port Knocking : In computer networking, port knocking is a method of externally opening ports on a firewall by generating a connection attempt on a set of prespecified closed ports.
