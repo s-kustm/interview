@@ -279,38 +279,57 @@ It happens in two steps-
 
 		> Server key. This key is regenerated after every hour and its default size is 768bits. (/etc/ssh/sshd_config)
 
-		> 8 random bytes also called checkbytes. Its necessary to send these bytes by the client to the server in its next reply.
+		> 8 random bytes also called checkbytes. Its necessary to send these bytes by the client to the server
+		  in its next reply.
 
 		> All supports encryption methods and authentication methods.
 
 
-	4- According to the list of encryption algorithms supported by the server, the client simply creates a random symmetric key and sends 			that symmetric key to the server. This symmetric key will be used to encrypt as well as decrypt the whole communication during 			this session. This symmetric key is doubly encrypted using server host key/ RSA public key first and then encrypted using 			server key.
+	4- According to the list of encryption algorithms supported by the server, the client simply creates a 
+	random symmetric key and sends that symmetric key to the server. This symmetric key will be used to encrypt
+	as well as decrypt the whole communication during this session. This symmetric key is doubly encrypted using
+	server host key/ RSA public key first and then encrypted using server key.
 
-	The doubly encrypted symmetric key is sent along with the selected algorithm by the client. The algorithm is selected from the options 
+	The doubly encrypted symmetric key is sent along with the selected algorithm by the client. 
+	The algorithm is selected from the options 
 	provided by the server in the step 3.
 
-	5- After sending the session key(which is double encrypted with server key and server host key), the client waits for a confirmation 		   message from the server. The confirmation from the server must be encrypted with the symmetric session key, which the client sent.
-	   Once the client receives a confirmation from the server, both of them can now start the communication with this symmetric 			encryption key.
+	5- After sending the session key(which is double encrypted with server key and server host key), the client
+	waits for a confirmation message from the server. The confirmation from the server must be encrypted with
+	the symmetric session key, which the client sent.
+	Once the client receives a confirmation from the server, both of them can now start the communication with this symmetric 			encryption key.
 
 
 **Client's Identity Verification**
 
 	Various types are there -- Most popular are password based and Public Key Authentication
 
-	1- The remote server on getting the passwords, logs in the user, based on the server's native password authentication mechanism.
-	The password transmitted by the client to the server is encrypted through the session symmetric key(which only the server and the 			client knows)
+	1- The remote server on getting the passwords, logs in the user, based on the server's native
+	    password authentication mechanism.
+	The password transmitted by the client to the server is encrypted through the session symmetric key
+	(which only the server and the client knows)
 
 	2- Public Key Authentication
-		> the client first needs to create an RSA public and private key(id_rsa, id_rsa.pub). Which can be done by a command called 				ssh-keygen.
-		> This public key will be given to all those server's where your require authentication. So a client that needs log-in to 				multiple servers using public key, needs to distribute his key to those multiple servers first.
+		> the client first needs to create an RSA public and private key(id_rsa, id_rsa.pub). Which can be
+		done by a command called ssh-keygen.
+		> This public key will be given to all those server's where your require authentication. 
+		So a client that needs log-in to multiple servers using public key, needs to distribute his 
+		key to those multiple servers first.
 		> Sharing means the content of the file id_rsa.pub, must be there in the file authorized_keys on the server.
 
-		> From the list of authentication method's supported by the server, the client will select a public key authentication and 				will also send the the details about the cryptography used for this public key authentication.
+		> From the list of authentication method's supported by the server, the client will select
+		a public key authentication and will also send the the details about the cryptography used for
+		this public key authentication.
 
-		> The server on receiving the public key authentication request, will first generate a random 256 bit string as a challenge 				for the client, and encrypt it with the client public key, which is inside the authorized_keys file. 
+		> The server on receiving the public key authentication request, will first generate a random 256 bit string
+		as a challenge for the client, and encrypt it with the client public key, which is inside the
+		authorized_keys file. 
 		> The client on receiving the challenge, will decrypt it with the private key(id_rsa). 
-		> The client will now combine that string with the session key(which was previously negotiated and is being used for symmetric 				encryption.) And will generate a md5 hash value. This hash value is send to the server.
-		> The server on receiving the hash, will regenerate it(because the server also has both the random string as well as the 			session key), and if it matches the hash send by the client, the client authentication succeeds.
+		> The client will now combine that string with the session key(which was previously negotiated 
+		and is being used for symmetric encryption.) And will generate a md5 hash value. This hash value is
+		send to the server.
+		> The server on receiving the hash, will regenerate it(because the server also has both the random string
+		as well as the session key), and if it matches the hash send by the client, the client authentication succeeds.
 
 15. ARP 
 
