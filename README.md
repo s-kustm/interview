@@ -1,3 +1,5 @@
+Disclaimer: The content mentioned here doesn't belongs to me by any means. Its just a collection and has been copy-pasted from various domains. 
+
 #Encryption is the process of encoding data so that the private data cannot be read by unauthorized users.
 
 1. Symmetric and Asymmetric(Public) encryption
@@ -105,10 +107,12 @@ DOM is a tree of objects created by the browser when the webpage is loaded and a
 	4. An attacker forces the XML parser to access the resource specified by him which could be a file on 
 	the system or on any remote system.
 	
-	 <?xml version="1.0" encoding="ISO-8859-1"?>
- 	 <!DOCTYPE foo [  
-  	 <!ELEMENT foo ANY >
-  	 <!ENTITY xxe SYSTEM "file:///etc/passwd" >]><foo>&xxe;</foo>
+	
+	     <?xml version="1.0" encoding="ISO-8859-1"?>
+ 	     <!DOCTYPE foo [  
+  	     <!ELEMENT foo ANY >
+  	     <!ENTITY xxe SYSTEM "file:///etc/passwd" >]><foo>&xxe;</foo>
+	 
 
 Remediation: The best solution would be to configure the XML processor to use a local static DTD and disallow
 any declared DTD included in the XML document as input.
@@ -120,6 +124,7 @@ http://resources.infosecinstitute.com/xxe-attacks/#gref
 https://www.synopsys.com/software-integrity/resources/knowledge-database/sql-injection.html
 
 Mitigation: 
+		
 		1. Use of prepared statements with parametrized queries. 
 
 			Prepared statements force developers 
