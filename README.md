@@ -25,6 +25,8 @@
 		2. Message has been sent by the legitimate user.
 		
 *Process*
+
+
 	**Sender**
 		- Take the email and generate a one way hash using MD5 or SHA1
 		- Take the one way hash and create a Signature using the owner's private key (This proves that the sender has a private key)
@@ -34,22 +36,26 @@
 	Signature is an method/algorithm that takes in hash(message digest) and private key to produce a signature.
 
 	**Receiver**
-		- On receiving, receiver wants to ensure that its untampered. So generate the message hash with the same algorithm 				SHA1
+		- On receiving, receiver wants to ensure that its untampered. So generate the message hash with 
+		   the same algorithm SHA1
 		- The encrypted hash or the signature is decrypted using sender's public key and the hash is obtained.
-
 		- Hash from step1 and Step2 is compared to confirm if the message is untampered.  
 
 4. DOM Based XSS
 
-	DOM Based XSS simply means a Cross-site scripting vulnerability that appears in the DOM (Document Object Model) instead of part of the 		HTML.
+	DOM Based XSS simply means a Cross-site scripting vulnerability that appears in the DOM 
+	(Document Object Model) instead of part of the HTML.
 		- Occurs entirely on the client side or on the code located in the browser
 		- Payload is never sent to the server
-		- document.url, document.location, document.referrer, location.href, location.search, document.write objects are most popular
+		- document.url, document.location, document.referrer, location.href, location.search, document.write
+		  objects are most popular
 	
 	**Mitigation**
+	
 		- HTML encoding and javascript encoding all untrusted input.
 		- Avoid client side sensitive actions 
-		- You can use the JavaScript built-in functions encode() or encodeURI() to escape data coming from the client's end.
+		- You can use the JavaScript built-in functions encode() or encodeURI() to escape data coming from
+		  the client's end.
 
 DOM is a tree of objects created by the browser when the webpage is loaded and allows client-side-scripts(Eg: Javascript) to dynamically access and modify the content, structure, and style of a webpage. 
 
@@ -60,29 +66,42 @@ DOM is a tree of objects created by the browser when the webpage is loaded and a
 		
 6. CORS
 
-		- A CORS request must have an Origin header; there is no way around it. If there is no Origin header, it is not CORS. This 				Origin header is added by the browser, and can not be controlled by the user.
-		- Pre-flight request: Let’s say that your web server does not support CORS, but browsers have implemented CORS. This means 					that your web server will get CORS requests that it does not know how to respond to.
+		- A CORS request must have an Origin header; there is no way around it. If there is no Origin header,
+		    it is not CORS. This Origin header is added by the browser, and can not be controlled by the user.
+		- Pre-flight request: Let’s say that your web server does not support CORS, but browsers have implemented CORS. 
+		   This means that your web server will get CORS requests that it does not know how to respond to.
 
-			To avoid the element of surprise, the browser sends preflight request and ask servers if they support CORS and allow 				requests with that origin, containing methods and headers. If not, the browser will not make the actual request.
-			GET, POST, HEAD and OPTIONS are all requests that server understands, so no preflight request are initiated from 				browser.
+		To avoid the element of surprise, the browser sends preflight request and ask servers if they support
+		CORS and allow requests with that origin, containing methods and headers. If not, the browser will not
+		make the actual request.
+		
+		GET, POST, HEAD and OPTIONS are all requests that server understands, so no preflight request
+		are initiated from browser.
 
 7. Same origin policy
-		Under the policy, a web browser permits scripts contained in a first web page to access data in a second web page, but only if 			both web pages have the same origin. An origin is defined as a combination of URI scheme, hostname, and port number.
+
+		Under the policy, a web browser permits scripts contained in a first web page to access data
+		in a second web page, but only if both web pages have the same origin. An origin is defined 
+		as a combination of URI scheme, hostname, and port number.
 
 8. XXE Attack (XML External Entity Attack)
-		Its an attack against an application that parses XML input. This attack occurs when an XML input containing reference to an 			external entity is processed by a weakly configured parser.
+		Its an attack against an application that parses XML input. This attack occurs when an XML input
+		containing reference to an external entity is processed by a weakly configured parser.
 
 	1. XML is a kind of format that is used to describe data.
 	2. Two systems which are running on different technologies can communicate and exchange data with one another using XML.
-	3. XML documents can contain something called ‘entities’ defined using a system identifier and are present within a DOCTYPE header. 			These entities can access local or remote content. 
-	4. An attacker forces the XML parser to access the resource specified by him which could be a file on the system or on any remote 		   system.
+	3. XML documents can contain something called ‘entities’ defined using a system identifier and
+	are present within a DOCTYPE header. These entities can access local or remote content. 
+	4. An attacker forces the XML parser to access the resource specified by him which could be a file on 
+	the system or on any remote system.
 	
 	 <?xml version="1.0" encoding="ISO-8859-1"?>
  	 <!DOCTYPE foo [  
   	 <!ELEMENT foo ANY >
   	 <!ENTITY xxe SYSTEM "file:///etc/passwd" >]><foo>&xxe;</foo>
 
-Remediation: The best solution would be to configure the XML processor to use a local static DTD and disallow any declared DTD included in the 			XML document as input.
+Remediation: The best solution would be to configure the XML processor to use a local static DTD and disallow
+any declared DTD included in the XML document as input.
 
 http://resources.infosecinstitute.com/xxe-attacks/#gref
 
@@ -101,7 +120,9 @@ Mitigation:
 	
 		2. Input validation
 		3. Stored Procedures
-			SQL statements defined and stored in the database itself and then called from the application. Developers are usually 				only required to build SQL statements with parameters that are automatically parameterized. 
+			SQL statements defined and stored in the database itself and then called from the application. 
+			Developers are usually only required to build SQL statements with parameters that are 
+			automatically parameterized. 
 		4. WAF
 				
 https://www.youtube.com/watch?v=sJdWuPHKRRY
@@ -134,16 +155,22 @@ Mitigation:
 
 12. SSRF - Server Side Request Forgery
 
-		- In a server-side request forgery (SSRF) attack, the attacker forces a vulnerable server to issue malicious requests on their 				behalf.
-		- Server-Side Request Forgery (SSRF) occurs when a web application is making a request, where an attacker has full or partial 				control of the request that is being sent.
-		- SSRF is usually used to target internal systems behind firewalls that are normally inaccessible to an attacker from the 				external network.
-		- Server-Side Request Forgery (SSRF) can be used to make requests to other internal resources which the web server has access 				to, but are not publicly facing.  
+		- In a server-side request forgery (SSRF) attack, the attacker forces a vulnerable server to issue 
+		   malicious requests on their behalf.
+		- Server-Side Request Forgery (SSRF) occurs when a web application is making a request, where 
+		   an attacker has full or partial control of the request that is being sent.
+		- SSRF is usually used to target internal systems behind firewalls that are normally inaccessible
+		  to an attacker from the external network.
+		- Server-Side Request Forgery (SSRF) can be used to make requests to other internal resources 
+		  which the web server has access to, but are not publicly facing.  
 			
 		Ex- 	1. GET /?url=file:///etc/passwd HTTP/1.1
 			2. Port Scanning
 
 			
-			3. Accessing instance metadata in Amazon EC2 and OpenStack instances. This service is only available to the server and 					not to the outside world.
+			3. Accessing instance metadata in Amazon EC2 and OpenStack instances. This service is only 
+			   available to the server and not to the outside world.
+			
 			GET /?url=http://169.254.169.254/latest/meta-data/ HTTP/1.1
 			Host: example.com
 		
@@ -160,11 +187,15 @@ Mitigation:
 			Some random text that will be used in sym key generation
 											2. Server Hello
 
-												SSL version,Cipher suite, hash that will be 													used, compression method to be used random 													string.
+												SSL version,Cipher suite, hash 
+												that will be 													                used, compression method to be
+												used random string.
 												
 
 											3. Server sends the digital certificate 
-												Certificate contains Public Key of the server
+												
+										          Certificate contains Public Key of 
+											  the server
 
 
 											4. Server Hello Done
@@ -180,13 +211,21 @@ Mitigation:
 			symmetric key
 		8. Client Finished
 
-											9. Pre-master secret is obtained by the server by 													decrypting using private key. And this 													pre-master is passed through a series of 													calculation to generate a symmetric key 		
+											9. Pre-master secret is obtained by 
+											 the server by decrypting using private 
+											 key. And this pre-master is passed 
+											 through a series of 													         calculation to generate a symmetric 
+											 key 		
 				
-											11. Change cipher spec command is sent indicating that 													from now on whatever will be sent by the 													browser will be encrypted using symmetric key
+											11. Change cipher spec command is sent 
+											indicating that from now on whatever 
+											will be sent by the 													         browser will be encrypted using 
+											symmetric key
 
 											12. Server finished
+											
 
-Contents of Digital Certificate (there are 2 sections)
+**Contents of Digital Certificate (there are 2 sections)**
 
 		Data Section
 >Serial Number of the Certificate. Every certificate issued by a certificate authority (CA) has a serial number that is unique among the certificates issued by that CA.
