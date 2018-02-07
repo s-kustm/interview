@@ -256,6 +256,7 @@ Mitigation:
 14. SSH handshake
 
 It happens in two steps-
+
 		1. Server's identity is authenticated by the client 
 
 		2. Client's identity is authenticated by the server
