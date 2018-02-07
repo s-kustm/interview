@@ -395,7 +395,7 @@ Both RAM and SITA have a common symmetric number now.
 
 >An example would consist of an attacker convincing the user to navigate to a web page the attacker controls. The attacker's page then loads malicious JavaScript and an HTML iframe pointing to a legitimate site. Once the user enters credentials into the legitimate site within the iframe, the malicious JavaScript steals the keystrokes. Ex: This can be used to exploit a known bug in IE browsers. 
 
->Iframe injection using XSS
+>XSS using Iframe Injection
 
 		1. Attackers hosts a page evil.com
 
