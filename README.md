@@ -335,17 +335,23 @@ It happens in two steps-
 
 16. DNS working
 
-		1. When searching for a www.example.com, we are actually searching for www.example.com. The Browser and OS looks within the 				computer if the related IP address stored in the cache.
+		1. When searching for a www.example.com, we are actually searching for www.example.com. The Browser and
+		 OS looks within the computer if the related IP address stored in the cache.
 
-		2. If no record found then the Operating system queries the *Resolving Name Server* for the records. The Resolving Name 			Server is configured within the computer automatically or manually. If no enteries in the cache, then the RNS will ask 				the ROOT Name Servers.
+		2. If no record found then the Operating system queries the *Resolving Name Server* for the records.
+		 The Resolving Name Server is configured within the computer automatically or manually.
+		 If no enteries in the cache, then the RNS will ask the ROOT Name Servers.
 
-		3. The ROOT Name Servers tells where to find the COM name servers or TLD Name Servers. The RNS takes all this information, 				puts it in its cache and then goes to TLD Name Servers. 
+		3. The ROOT Name Servers tells where to find the COM name servers or TLD Name Servers.
+		The RNS takes all this information, puts it in its cache and then goes to TLD Name Servers. 
 
-		4. When the RNS queries COM TLD nameservers for www.example.com., TLS ns then tells the address for example.com. Name Servers
-			which are also called Authoriative Name Servers. The RNS puts all this information in its cache and goes to 				example.com. Authoriative NS.
+		4. When the RNS queries COM TLD nameservers for www.example.com., TLS ns then tells the address
+		for example.com. Name Servers which are also called Authoriative Name Servers. The RNS puts all
+		this information in its cache and goes to example.com. Authoriative NS.
 
-		5. The example.com. Authoriative Name Servers will tell the RNS the related IP address. This entry is made in the memory of RNS
-			and RNS goes back to the OS. OS then passes this information to the browser.
+		5. The example.com. Authoriative Name Servers will tell the RNS the related IP address of www.example.com.
+		This entry is made in the memory of RNS and RNS goes back to the OS. OS then passes this
+		information to the browser.
 
 17. Diffie Hellman Key Exchange
 
