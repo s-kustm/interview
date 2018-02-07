@@ -66,8 +66,18 @@ DOM is a tree of objects created by the browser when the webpage is loaded and a
 		
 6. CORS
 
+                - The Cross-Origin Resource Sharing standard works by adding new HTTP headers that allow servers
+		  to describe the set of origins that are permitted to read that information using a web browser.
+		  
+		- CORS defines the protocol to use between a web browser and a server to determine whether a cross-origin
+		  request is allowed. In order to accomplish this goal, there are a few HTTP headers involved in this
+		  process, that are supported by all major browsers and we will cover below including: Origin,
+		  Access-Control-Request-Method, Access-Control-Request-Headers, Access-Control-Allow-Origin,
+		  Access-Control-Allow-Credentials, Access-Control-Allow-Methods, Access-Control-Allow-Headers.
+
 		- A CORS request must have an Origin header; there is no way around it. If there is no Origin header,
 		    it is not CORS. This Origin header is added by the browser, and can not be controlled by the user.
+		    
 		- Pre-flight request: Let’s say that your web server does not support CORS, but browsers have implemented CORS. 
 		   This means that your web server will get CORS requests that it does not know how to respond to.
 
