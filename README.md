@@ -539,44 +539,44 @@ Ex- Image with the name hello.gif and can be changed to hello.phpA.gif. Try repl
 
 28. Command Injection
 
-Command injection is an attack in which the goal is execution of arbitrary commands on the host operating system via a vulnerable application. Command injection attacks are possible when an application passes unsafe user supplied data (forms, cookies, HTTP headers etc.) to a system shell.
+	Command injection is an attack in which the goal is execution of arbitrary commands on the host operating 		system via a vulnerable application. Command injection attacks are possible when an application passes unsafe 		user supplied data (forms, cookies, HTTP headers etc.) to a system shell.
 
 Ex- ShellShock Vulnerability
 
-Shellshock is a security bug causing Bash to execute commands from environment variables unintentionally.
+	Shellshock is a security bug causing Bash to execute commands from environment variables unintentionally.
 
-Since the environment variables are not sanitized properly by Bash before being executed, the attacker can send commands to the server through HTTP requests and get them executed by the web server operating system. 
+	Since the environment variables are not sanitized properly by Bash before being executed, the attacker can send 	commands to the server through HTTP requests and get them executed by the web server operating system. 
 
-An attacker can potentially use CGI to send a malformed environment variable to a vulnerable Web server. Because the server uses Bash to interpret the variable, it will also run any malicious command tacked-on to it.
+	An attacker can potentially use CGI to send a malformed environment variable to a vulnerable Web server. 		Because the server uses Bash to interpret the variable, it will also run any malicious command tacked-on to it.
 
 29. Content Security Policy (CSP) 
-is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. 
+		is an added layer of security that helps to detect and mitigate certain types of attacks, including 			Cross Site Scripting (XSS) and data injection attacks. 
 
-Ex-1
-A web site administrator wants all content to come from the site's own origin (this excludes subdomains.)
+	Ex-1
+	A web site administrator wants all content to come from the site's own origin (this excludes subdomains.)
 
-Content-Security-Policy: default-src 'self'
+	Content-Security-Policy: default-src 'self'
 
-Ex-2 
-A web site administrator wants to allow content from a trusted domain and all its subdomains (it doesn't have to be the same domain that the CSP is set on.)
+	Ex-2 
+	A web site administrator wants to allow content from a trusted domain and all its subdomains (it doesn't have 		to be the same domain that the CSP is set on.)
 
 Content-Security-Policy: default-src 'self' *.trusted.com
 
 30. HSTS
 
-a. HTTP Strict Transport Security (HSTS) is an opt-in security enhancement that is specified by a web application through the use of a special response header. Once a supported browser receives this header that browser will prevent any communications from being sent over HTTP to the specified domain and will instead send all communications over HTTPS.
+		a. HTTP Strict Transport Security (HSTS) is an opt-in security enhancement that is specified by a web 			application through the use of a special response header. Once a supported browser receives this header 		that browser will prevent any communications from being sent over HTTP to the specified domain and will 		instead send all communications over HTTPS.
 
-b. HSTS does not allow a user to override the invalid certificate message
+		b. HSTS does not allow a user to override the invalid certificate message
 
 31. WebDav
 
-a. Web Distributed Authoring and Versioning (WebDAV) is an extension of the Hypertext Transfer Protocol (HTTP) that allows clients to perform remote Web content authoring operations.
+		a. Web Distributed Authoring and Versioning (WebDAV) is an extension of the Hypertext Transfer Protocol 		(HTTP) that allows clients to perform remote Web content authoring operations.
 
-b. The WebDAV protocol provides a framework for users to create, change and move documents on a server.
+		b. The WebDAV protocol provides a framework for users to create, change and move documents on a server.
 
-COPY
-    copy a resource from one URI to another
-MOVE
-    move a resource from one URI to another
+		COPY
+   			 copy a resource from one URI to another
+		MOVE
+  			  move a resource from one URI to another
 
 
