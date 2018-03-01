@@ -97,33 +97,35 @@ DOM is a tree of objects created by the browser when the webpage is loaded and a
 		as a combination of URI scheme, hostname, and port number.
 
 8. XXE Attack (XML External Entity Attack)
-		Its an attack against an application that parses XML input. This attack occurs when an XML input
-		containing reference to an external entity is processed by a weakly configured parser.
+				Its an attack against an application that parses XML input. This attack occurs when 
+			an XML input containing reference to an external entity is processed by a weakly
+			configured parser.
 
-	1. XML is a kind of format that is used to describe data.
-	2. Two systems which are running on different technologies can communicate and exchange data with one another using XML.
-	3. XML documents can contain something called ‘entities’ defined using a system identifier and
-	are present within a DOCTYPE header. These entities can access local or remote content. 
-	4. An attacker forces the XML parser to access the resource specified by him which could be a file on 
-	the system or on any remote system.
+		1. XML is a kind of format that is used to describe data.
+		2. Two systems which are running on different technologies can communicate and exchange
+		data with one another using XML.
+		3. XML documents can contain something called ‘entities’ defined using a system identifier and
+		are present within a DOCTYPE header. These entities can access local or remote content. 
+		4. An attacker forces the XML parser to access the resource specified by him which could be a file on 
+		the system or on any remote system.
 	
 	
-	  <?xml version="1.0" encoding="ISO-8859-1"?>
- 	  <!DOCTYPE foo [  
-  	  <!ELEMENT foo ANY >
-  	  <!ENTITY xxe SYSTEM "file:///etc/passwd" >]><foo>&xxe;</foo>
+	 	 <?xml version="1.0" encoding="ISO-8859-1"?>
+ 	 	 <!DOCTYPE foo [  
+  	 	 <!ELEMENT foo ANY >
+  	  	 <!ENTITY xxe SYSTEM "file:///etc/passwd" >]><foo>&xxe;</foo>
 	     
-	googledork -> allinurl:skin/frontend
+		googledork -> allinurl:skin/frontend
 	     
-	 <!DOCTYPE a
-	 [<!ENTITY baba "hacked !!!">]
-	 >
+			 <!DOCTYPE a
+			 [<!ENTITY baba "hacked !!!">]
+			 >
 	     
-	 <methodCall><methodName>&baba;</methodName></methodCall>
+		 <methodCall><methodName>&baba;</methodName></methodCall>
 	 
 
-Remediation: The best solution would be to configure the XML processor to use a local static DTD and disallow
-any declared DTD included in the XML document as input.
+		Remediation: The best solution would be to configure the XML processor to use a local
+		static DTD and 	disallow any declared DTD included in the XML document as input.
 
 http://resources.infosecinstitute.com/xxe-attacks/#gref
 
@@ -148,7 +150,7 @@ Mitigation:
 			automatically parameterized. 
 		4. WAF
 		
-Blind SQL Injection: This attack is often used when the web application is configured to show generic error messages, 				but has not mitigated the code that is vulnerable to SQL injection. Blind SQL (Structured Query 			Language) injection is a type of SQL Injection attack that asks the database true or false 				questions and determines the answer based on the applications response. 
+Blind SQL Injection: This attack is often used when the web application is configured to show generic error messages, 			     but has not mitigated the code that is vulnerable to SQL injection. Blind SQL (Structured Query 			     Language) injection is a type of SQL Injection attack that asks the database true or false 			     questions and determines the answer based on the applications response. 
 
 For ex: http://newspaper.com/items.php?id=2 and 1=1
      If the content of the page that returns 'true' is different than that of the page that returns 'false', then the attacker is able to distinguish when the executed query returns true or false. 
@@ -494,26 +496,30 @@ Heavily used in AJAX instead of XML due to its light weight.
 24. CSRF is an attack that forces an end user to execute unwanted actions on a web application in which they're currently authenticated.
 	
 >Malicious website exploits the trust between the victim's browser and the vulnerable website to which victim is authenticated to.
->CSRF attacks specifically target state-changing requests, not theft of data, since the attacker has no way to see the response to the 		forged request.
+>CSRF attacks specifically target state-changing requests, not theft of data, since the attacker has no way to see the response to the forged request.
 
  	1. Can happen if website is vulnerable to html injection or xss.
 	2. Malicious website hosting the vulnerable Form or GET request.
 	3. img src, script src, iframe src tags can be used.
 
 Ex- CSRF using iframe
-	<iframe name="attack" style=display:none></iframe>
-	<form action="bawhaha" method="POST" target="attack">
-	<script>document.forms[0].submit();</script>
+			
+			<iframe name="attack" style=display:none></iframe>
+			<form action="bawhaha" method="POST" target="attack">
+			<script>document.forms[0].submit();</script>
 
 		1. Create a POST request form containing CSRF submit request
 		2. Create an iframe
 		3. POST request is made as soon as the victim visits the page.
-		4. The response is loaded in the invisible iframe by putting a "target" paramter within the Form attribute.
+		4. The response is loaded in the invisible iframe by putting a "target" paramter within
+			the Form attribute.
 
 Ex- Breaking CSRF token cipher/hashing
 
 25. IDOR : Authorization Problem
-When a developer fails to apply authorization checks while various objects are being referenced. Happens in a multiuser system where a user is able to access another user's objects which he/she shouldn't be allowed to.
+
+		When a developer fails to apply authorization checks while various objects are being referenced. 			Happens in a multiuser system where a user is able to access another user's objects which
+		he/she shouldn't be allowed to.
 
 26. Template Injection
 
@@ -545,22 +551,26 @@ Ex- ShellShock Vulnerability
 
 	Shellshock is a security bug causing Bash to execute commands from environment variables unintentionally.
 
-	Since the environment variables are not sanitized properly by Bash before being executed, the attacker can send 	commands to the server through HTTP requests and get them executed by the web server operating system. 
+	Since the environment variables are not sanitized properly by Bash before being executed, the attacker
+	can send commands to the server through HTTP requests and get them executed by the web server operating system. 
 
 	An attacker can potentially use CGI to send a malformed environment variable to a vulnerable Web server. 		Because the server uses Bash to interpret the variable, it will also run any malicious command tacked-on to it.
 
 29. Content Security Policy (CSP) 
+
 		is an added layer of security that helps to detect and mitigate certain types of attacks, including 			Cross Site Scripting (XSS) and data injection attacks. 
 
-	Ex-1
-	A web site administrator wants all content to come from the site's own origin (this excludes subdomains.)
+		Ex-1
+		A web site administrator wants all content to come from the site's own origin
+		(this excludes subdomains.)
 
-	Content-Security-Policy: default-src 'self'
+		Content-Security-Policy: default-src 'self'
 
-	Ex-2 
-	A web site administrator wants to allow content from a trusted domain and all its subdomains (it doesn't have 		to be the same domain that the CSP is set on.)
+		Ex-2 
+		A web site administrator wants to allow content from a trusted domain and all its subdomains
+		(it doesn't have to be the same domain that the CSP is set on.)
 
-Content-Security-Policy: default-src 'self' *.trusted.com
+		Content-Security-Policy: default-src 'self' *.trusted.com
 
 30. HSTS
 
