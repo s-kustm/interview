@@ -516,6 +516,13 @@ Ex- CSRF using iframe
 
 Ex- Breaking CSRF token cipher/hashing
 
+CSRF Mitigation
+
+		SameSite attribute used with Set-Cookie header prevents the browser from sending this cookie
+		along with cross-site requests. The main goal is mitigate the risk of cross-origin information leakage.
+		
+		Set-Cookie: key=value; HttpOnly; SameSite=strict
+
 25. IDOR : Authorization Problem
 
 		When a developer fails to apply authorization checks while various objects are being referenced. 			Happens in a multiuser system where a user is able to access another user's objects which
