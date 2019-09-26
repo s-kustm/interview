@@ -607,11 +607,12 @@ Ex- ShellShock Vulnerability
 	A web service is a system or software that uses an address, i.e., URL on the World Wide Web, to provide access to its services.
 
 	The following are the most common types of web service APIs:
+	
 SOAP (Simple Object Access Protocol):
-	This is a protocol that uses XML as a format to transfer data. Its main function is to define the structure of the messages and method of communication. It also uses WSDL, or Web Services Definition Language, in a machine-readable document to publish a definition of its interface.
+	This is a protocol that uses XML as a format to transfer data. Its main function is to define the structure of the messages and 	method of communication. It also uses WSDL, or Web Services Definition Language, in a machine-readable document to publish a 		definition of its interface.
 
 XML-RPC:
-	This is a protocol that uses a specific XML format to transfer data compared to SOAP that uses a proprietary XML format. It is also older than SOAP. XML-RPC uses minimum bandwidth and is much simpler than SOAP. Example
+	This is a protocol that uses a specific XML format to transfer data compared to SOAP that uses a proprietary XML format. It is 		also older than SOAP. XML-RPC uses minimum bandwidth and is much simpler than SOAP. Example
 		<employees>
   		<employee>
    		<firstName>Becky</firstName> <lastName>Smith</lastName>
@@ -622,4 +623,4 @@ JSON-RPC:
 		 { "firstName":"Becky", "lastName":"Smith" },
  
 REST (Representational State Transfer):
-	REST is not a protocol like the other web services, instead, it is a set of architectural principles. The REST service needs to have certain characteristics, including simple interfaces, which are resources identified easily within the request and manipulation of resources using the interface.
+	REST is not a protocol like the other web services, instead, it is a set of architectural principles. The REST service needs to 	have certain characteristics, including simple interfaces, which are resources identified easily within the request and 		manipulation of resources using the interface.
