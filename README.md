@@ -596,4 +596,26 @@ Ex- ShellShock Vulnerability
 		MOVE
   			  move a resource from one URI to another
 
+32. What is API?
+	An application program interface (API) is a set of routines, protocols, and tools for building software applications. Basically, 	an API specifies how software components should interact. Additionally, APIs are used when programming graphical user interface 	(GUI) components.
+	- Web service APIs
+	Apart from the main web APIs, there are also web service APIs:
+		+SOAP
+		+XML-RPC
+		+JSON-RPC
+		+REST
+	A web service is a system or software that uses an address, i.e., URL on the World Wide Web, to provide access to its services.
 
+	The following are the most common types of web service APIs:
+	SOAP (Simple Object Access Protocol): This is a protocol that uses XML as a format to transfer data. Its main function is to define the structure of the messages and method of communication. It also uses WSDL, or Web Services Definition Language, in a machine-readable document to publish a definition of its interface.
+
+	XML-RPC: This is a protocol that uses a specific XML format to transfer data compared to SOAP that uses a proprietary XML format. It is also older than SOAP. XML-RPC uses minimum bandwidth and is much simpler than SOAP. Example
+		<employees>
+  		<employee>
+   		<firstName>Becky</firstName> <lastName>Smith</lastName>
+
+	JSON-RPC: This protocol is similar to XML-RPC but instead of using XML format to transfer data it uses JSON. Example
+		{"employees":[
+		 { "firstName":"Becky", "lastName":"Smith" },
+ 
+	REST (Representational State Transfer): REST is not a protocol like the other web services, instead, it is a set of architectural principles. The REST service needs to have certain characteristics, including simple interfaces, which are resources identified easily within the request and manipulation of resources using the interface.
