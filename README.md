@@ -604,6 +604,7 @@ Ex- ShellShock Vulnerability
 		+XML-RPC
 		+JSON-RPC
 		+REST
+		
 	A web service is a system or software that uses an address, i.e., URL on the World Wide Web, to provide access to its services.
 
 	The following are the most common types of web service APIs:
