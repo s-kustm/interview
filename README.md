@@ -173,13 +173,13 @@ Mitigation:
 		- SSLv3(POODLE)				-TLS1.2
 		- SSLv3.1				-TLS1.3
 
->SSL 1.0 never publically release (Wikipedia - https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0,_2.0,_and_3.0 )
+> - SSL 1.0 never publically release because of serious security flaws in the protocol. (Wikipedia - https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0,_2.0,_and_3.0 )
 
->Both SSL 2.0, 3.0, TLS 1.0, and 1.1 have been deprecated
+> - Both SSL 2.0, 3.0, TLS 1.0, and 1.1 have been deprecated
 
->SSL is the predecessor to TLS - TLS is the new name for SSL
+> - SSL is the predecessor to TLS - TLS is the new name for SSL
 
->HTTPS is HTTP-within-SSL/TLS. 
+> - HTTPS is HTTP-within-SSL/TLS. 
 
 
 12. SSRF - Server Side Request Forgery
