@@ -630,34 +630,50 @@ Ex- ShellShock Vulnerability
 33. Application Vulnerabilities
 >Software system flaws or weaknesses in an application that could be exploited to compromise the security of the application.
 
-34. Buffer Overflow - Buffer Overflows occur when there is more data in a buffer than it can handle, causing data to overflow into adjacent storage.
+34. Buffer Overflow
+>Buffer Overflows occur when there is more data in a buffer than it can handle, causing data to overflow into adjacent storage.
 
-35. Credentials Management - A credentials management attack attempts to breach username/password pairs and take control of user accounts.
+35. Credentials Management
+>A credentials management attack attempts to breach username/password pairs and take control of user accounts.
 
-36. CRLF Injection - CRLF Injection attacks refer to the special character elements "Carriage Return" and "Line Feed." Exploits occur when an attacker is able to inject a CRLF sequence into an HTTP stream. 
+36. CRLF Injection
+>CRLF Injection attacks refer to the special character elements "Carriage Return" and "Line Feed." Exploits occur when an attacker is able to inject a CRLF sequence into an HTTP stream. 
 
-37. Cross-Site Request Forgery - Cross-Site Request Forgery (CSRF) is a malicious attack that tricks the user’s web browser to perform undesired actions so that they appear as if an authorized user is performing those actions.
+37. Cross-Site Request Forgery
+>Cross-Site Request Forgery (CSRF) is a malicious attack that tricks the user’s web browser to perform undesired actions so that they appear as if an authorized user is performing those actions.
 
-38. Cross-Site Scripting - XSS vulnerabilities target scripts embedded in a page that are executed on the client-side (in the user’s web browser) rather than on the server-side. 
+38. Cross-Site Scripting
+>XSS vulnerabilities target scripts embedded in a page that are executed on the client-side (in the user’s web browser) rather than on the server-side. 
 
-39. Directory Traversal - Directory traversal is a type of HTTP exploit that is used by attackers to gain unauthorized access to restricted directories and files.
+39. Directory Traversal
+>Directory traversal is a type of HTTP exploit that is used by attackers to gain unauthorized access to restricted directories and files.
 
-40. Encapsulation - Encapsulation refers to a programming approach that revolves around data and functions contained, or encapsulated, within a set of operating instructions.
+40. Encapsulation
+>Encapsulation refers to a programming approach that revolves around data and functions contained, or encapsulated, within a set of operating instructions.
 
-41. Error Handling - Error Handling vulnerabilities occur when a system reveals detailed error messages or codes generated from stack traces, database dumps, and a wide variety of other problems, including out of memory, null pointer exceptions, and network timeout errors.
+41. Error Handling
+>Error Handling vulnerabilities occur when a system reveals detailed error messages or codes generated from stack traces, database dumps, and a wide variety of other problems, including out of memory, null pointer exceptions, and network timeout errors.
 
-42. Failure to Restrict URL Access - One of the common vulnerabilities listed on the Open Web Application Security Project’s (OWASP) Top 10. The OWASP Top 10 details the most critical vulnerabilities in web applications. 
+42. Failure to Restrict URL Access
+>One of the common vulnerabilities listed on the Open Web Application Security Project’s (OWASP) Top 10. The OWASP Top 10 details the most critical vulnerabilities in web applications. 
 
-43. Insecure Cryptographic Storage - Insecure Cryptographic Storage is a common vulnerability that occurs when sensitive data is not stored securely from internal users. 
+43. Insecure Cryptographic Storage
+>Insecure Cryptographic Storage is a common vulnerability that occurs when sensitive data is not stored securely from internal users. 
 
-44. Insufficient Transport Layer Protection - Insufficient transport layer protection is a security weakness caused by applications not taking any measures to protect network traffic. 
+44. Insufficient Transport Layer Protection
+>Insufficient transport layer protection is a security weakness caused by applications not taking any measures to protect network traffic. 
 
-45. LDAP Injection - LDAP injection is the technique of exploiting web applications that use client-supplied data in LDAP statements without first stripping potentially harmful characters from the request. 
+45. LDAP Injection
+>LDAP injection is the technique of exploiting web applications that use client-supplied data in LDAP statements without first stripping potentially harmful characters from the request. 
 
-46. Malicious Code - Analysis tools are designed to uncover any code in any part of a software system or script that is intended to cause undesired effects, security breaches or damage to a system. 
+46. Malicious Code
+>Analysis tools are designed to uncover any code in any part of a software system or script that is intended to cause undesired effects, security breaches or damage to a system. 
 
-47. OS Command Injection - Command injection refers to a class of critical application vulnerabilities involving dynamically generated content. Attackers execute arbitrary commands on a host operating system using a vulnerable application.
+47. OS Command Injection
+>Command injection refers to a class of critical application vulnerabilities involving dynamically generated content. Attackers execute arbitrary commands on a host operating system using a vulnerable application.
 
-48. Race Condition - A race condition attack happens when a computing system that’s designed to handle tasks in a specific sequence is forced to perform two or more operations simultaneously.
+48. Race Condition
+>A race condition attack happens when a computing system that’s designed to handle tasks in a specific sequence is forced to perform two or more operations simultaneously.
 
-49. SQL Injection - SQL injection is a type of web application security vulnerability in which an attacker is able to submit a database SQL command, which is executed by a web application, exposing the back-end database.
+49. SQL Injection
+>SQL injection is a type of web application security vulnerability in which an attacker is able to submit a database SQL command, which is executed by a web application, exposing the back-end database.
