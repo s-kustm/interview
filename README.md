@@ -174,35 +174,27 @@ Mitigation:
 		- SSLv3.1				-TLS1.3
 
 > - SSL 1.0 never publically release because of serious security flaws in the protocol. (Wikipedia - https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0,_2.0,_and_3.0 )
-
 > - Both SSL 2.0, 3.0, TLS 1.0, and 1.1 have been deprecated
-
 > - SSL is the predecessor to TLS - TLS is the new name for SSL
-
 > - HTTPS is HTTP-within-SSL/TLS. 
 
 
 12. SSRF - Server Side Request Forgery
 
-		- In a server-side request forgery (SSRF) attack, the attacker forces a vulnerable server to issue 
-		   malicious requests on their behalf.
-		- Server-Side Request Forgery (SSRF) occurs when a web application is making a request, where 
-		   an attacker has full or partial control of the request that is being sent.
-		- SSRF is usually used to target internal systems behind firewalls that are normally inaccessible
-		  to an attacker from the external network.
-		- Server-Side Request Forgery (SSRF) can be used to make requests to other internal resources 
-		  which the web server has access to, but are not publicly facing.  
-			
-		Ex- 	1. GET /?url=file:///etc/passwd HTTP/1.1
+>In a server-side request forgery (SSRF) attack, the attacker forces a vulnerable server to issue malicious requests on their behalf.
+Server-Side Request Forgery (SSRF) occurs when a web application is making a request, where an attacker has full or partial control of the request that is being sent.
+SSRF is usually used to target internal systems behind firewalls that are normally inaccessible to an attacker from the external network.
+Server-Side Request Forgery (SSRF) can be used to make requests to other internal resources which the web server has access to, but are not publicly facing.
+		
+		Ex- 
+			1. GET /?url=file:///etc/passwd HTTP/1.1
 			2. Port Scanning
-
-			
 			3. Accessing instance metadata in Amazon EC2 and OpenStack instances. This service is only 
 			   available to the server and not to the outside world.
 			
 			GET /?url=http://169.254.169.254/latest/meta-data/ HTTP/1.1
 			Host: example.com
-		
+
 	
 13. SSL/TLS Handshake
 
@@ -217,42 +209,26 @@ Mitigation:
 											2. Server Hello
 
 												SSL version,Cipher suite, hash 
-												that will be 													                used, compression method to be
+												that will be used, compression method to be
 												used random string.
 												
-
-											3. Server sends the digital certificate 
-												
-										          Certificate contains Public Key of 
-											  the server
-
-
-											4. Server Hello Done
-
-		5. Certificate verify message is sent on certificate verification
-
-		6. Pre-master Secret is encrypted with the public-key and sent
-			to the server. pre-master is passed through a series of 							      
-			calculation to generate a symmetric key.
-
-		7. Change cipher spec command is sent indicating that from now on
-			whatever will be sent by the browser will be encrypted using
-			symmetric key
-		8. Client Finished
-
-											9. Pre-master secret is obtained by 
-											 the server by decrypting using private 
-											 key. And this pre-master is passed 
-											 through a series of 													         calculation to generate a symmetric 
-											 key 		
-				
-											11. Change cipher spec command is sent 
-											indicating that from now on whatever 
-											will be sent by the 													         browser will be encrypted using 
-											symmetric key
-
-											12. Server finished
 											
+		3.  Authentication and Pre-Master Secret.
+		Client authenticates the server certificate.
+		(e.g. Common Name / Date / Issuer) Client (depending on the cipher)
+		creates the pre-master secret for the session, Encrypts
+		with the server's public key and sends the encrypted
+		pre-master secret to the server.
+												
+										         4.  Decryption and Master Secret
+											 Server uses its private key to decrypt the pre-master secret.
+											 Both Server and Client perform steps to generate the master secret
+											 with the agreed cipher.
+
+		5.  Encryption with Session Key.
+		Both client and server exchange messages to inform that future messages will be encrypted.
+		
+		 - Source ( https://www.websecurity.digicert.com/security-topics/how-does-ssl-handshake-work )									
 
 **Contents of Digital Certificate (there are 2 sections)**
 
