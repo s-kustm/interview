@@ -62,9 +62,9 @@ Disclaimer: The content mentioned here doesn't belongs to me by any means. Its j
 DOM is a tree of objects created by the browser when the webpage is loaded and allows client-side-scripts(Eg: Javascript) to dynamically access and modify the content, structure, and style of a webpage. 
 
 5. What can be done with XSS
-		-  Cookie stealing leading to session hijacking
-		-  CSRF token stealing and conducting CSRF attacks
-		-  Phishing Attacks
+> - Cookie stealing leading to session hijacking
+> - CSRF token stealing and conducting CSRF attacks
+> - Phishing Attacks
 		
 6. CORS
 
