@@ -19,12 +19,13 @@ Disclaimer: The content mentioned here doesn't belongs to me by any means. Its j
 
 		DES, 3DES, AES, RC4, Blowfish etc					RSA, DSA, PGP
 
-2. Hashing: Hashing is a form of cryptographic security which differs from encryption. Whereas encryption is a two step process used to first encrypt and then decrypt a message, hashing condenses a message into an irreversible fixed-length value, or hash.
+2. Hashing:
+>Hashing is a form of cryptographic security which differs from encryption. Whereas encryption is a two step process used to first encrypt and then decrypt a message, hashing condenses a message into an irreversible fixed-length value, or hash.
 		Ex- MD5 and SHA1
 
 3. Digital Signature
-		1. Message sent by the user was not tampered in transit.
-		2. Message has been sent by the legitimate user.
+		>1. Message sent by the user was not tampered in transit.
+		>2. Message has been sent by the legitimate user.
 		
 *Process*
 
