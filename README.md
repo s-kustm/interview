@@ -129,9 +129,9 @@ DOM is a tree of objects created by the browser when the webpage is loaded and a
 
 http://resources.infosecinstitute.com/xxe-attacks/#gref
 
-9. SQLi occurs when an application accepts malicious user input that can be used to query the backend database.
-
-https://www.synopsys.com/software-integrity/resources/knowledge-database/sql-injection.html
+9. SQLi.
+> SQLi occurs when an application accepts malicious user input that can be used to query the backend database.
+>https://www.synopsys.com/software-integrity/resources/knowledge-database/sql-injection.html
 
 Mitigation: 
 		
@@ -150,7 +150,8 @@ Mitigation:
 			automatically parameterized. 
 		4. WAF
 		
-Blind SQL Injection: This attack is often used when the web application is configured to show generic error messages, 			     but has not mitigated the code that is vulnerable to SQL injection. Blind SQL (Structured Query 			     Language) injection is a type of SQL Injection attack that asks the database true or false 			     questions and determines the answer based on the applications response. 
+>Blind SQL Injection:
+		This attack is often used when the web application is configured to show generic error messages, but has not mitigated the code that is vulnerable to SQL injection. Blind SQL (Structured Query Language) injection is a type of SQL Injection attack that asks the database true or false questions and determines the answer based on the applications response. 
 
 For ex: http://newspaper.com/items.php?id=2 and 1=1
      If the content of the page that returns 'true' is different than that of the page that returns 'false', then the attacker is able to distinguish when the executed query returns true or false. 
