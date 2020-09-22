@@ -627,7 +627,8 @@ Ex- ShellShock Vulnerability
 		REST is not a protocol like the other web services, instead, it is a set of architectural principles. The REST service 			needs to have certain characteristics, including simple interfaces, which are resources identified easily within the 			request and manipulation of resources using the interface.
 
 
-33. Application Vulnerabilities - Software system flaws or weaknesses in an application that could be exploited to compromise the security of the application.
+33. Application Vulnerabilities
+>Software system flaws or weaknesses in an application that could be exploited to compromise the security of the application.
 
 34. Buffer Overflow - Buffer Overflows occur when there is more data in a buffer than it can handle, causing data to overflow into adjacent storage.
 
