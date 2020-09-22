@@ -45,9 +45,7 @@ Disclaimer: The content mentioned here doesn't belongs to me by any means. Its j
 		- Hash from step1 and Step2 is compared to confirm if the message is untampered.  
 
 4. DOM Based XSS
-
-	DOM Based XSS simply means a Cross-site scripting vulnerability that appears in the DOM 
-	(Document Object Model) instead of part of the HTML.
+>DOM Based XSS simply means a Cross-site scripting vulnerability that appears in the DOM (Document Object Model) instead of part of the HTML.
 		- Occurs entirely on the client side or on the code located in the browser
 		- Payload is never sent to the server
 		- document.url, document.location, document.referrer, location.href, location.search, document.write
