@@ -149,12 +149,10 @@ Mitigation:
 			Developers are usually only required to build SQL statements with parameters that are 
 			automatically parameterized. 
 		4. WAF
-		
 >Blind SQL Injection:
-This attack is often used when the web application is configured to show generic error messages, but has not mitigated the code that is vulnerable to SQL injection. Blind SQL (Structured Query Language) injection is a type of SQL Injection attack that asks the database true or false questions and determines the answer based on the applications response. 
+		This attack is often used when the web application is configured to show generic error messages, but has not mitigated the code that is vulnerable to SQL injection. Blind SQL (Structured Query Language) injection is a type of SQL Injection attack that asks the database true or false questions and determines the answer based on the applications response.
 
-For ex: http://newspaper.com/items.php?id=2 and 1=1
-     If the content of the page that returns 'true' is different than that of the page that returns 'false', then the attacker is able to distinguish when the executed query returns true or false. 
+		For ex: http://newspaper.com/items.php?id=2 and 1=1 If the content of the page that returns 'true' is different than that of the page that returns 'false', then the attacker is able to distinguish when the executed query returns true or false. 
 				
 https://www.youtube.com/watch?v=sJdWuPHKRRY
 
