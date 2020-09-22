@@ -169,16 +169,13 @@ Mitigation:
 		SSL Versions 				TLS Versions
 
 		- SSLv1					-TLS1.0
-		- SSLv2					-TLS2.0
-		- SSLv3(POODLE)				-TLS3.0
-		- SSLv3.1
+		- SSLv2					-TLS1.1
+		- SSLv3(POODLE)				-TLS1.2
+		- SSLv3.1				-TLS1.3
 
-		TLS is the new name of SSL.
-		TLS1.0 is SSL v3.1
-
->Both SSL 2.0 and 3.0 have been deprecated
->SSL is the predecessor to TLS. 
->TLS is the new name for SSL.
+>SSL 1.0 never publically release (Wikipedia - https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0,_2.0,_and_3.0 )
+>Both SSL 2.0, 3.0, TLS 1.0, and 1.1 have been deprecated
+>SSL is the predecessor to TLS - TLS is the new name for SSL
 >HTTPS is HTTP-within-SSL/TLS. 
 
 
