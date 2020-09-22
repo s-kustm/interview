@@ -322,6 +322,7 @@ It happens in two steps-
 		as well as the session key), and if it matches the hash send by the client, the client authentication succeeds.
 
 15. ARP 
+>Address Resolution Protocol (ARP) is a protocol that maps an Internet Protocol address to a MAC address that is recognized in the local network. ARP is used to keep track of all devices that are directly connected IP subnets of the switch. The switch maintains an ARP table which is made of mapped IP addresses and MAC addresses. When a packet needs to be routed to a certain device, the switch looks up the IP address of the device in its ARP table to obtain the MAC address of the destination device. The ARP table includes both static and dynamic addresses.
 
 16. DNS working
 
